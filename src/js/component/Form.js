@@ -9,10 +9,10 @@ const Form = () => {
         { label: "Do the replits", done: false }
     ]); */
 	const [todos, setTodos] = useState([]);
-
+	/*
 	let lista = TraerLista();
 	console.log("revisar lista", lista);
-
+*/
 	useEffect(() => {
 		getTareas();
 	}, []);
@@ -73,7 +73,7 @@ const Form = () => {
 				console.log("error SubirLista", error);
 			});
 	}
-
+	//esta funcion esta de mas, fue para evaluar otra forma de usar el await
 	async function TraerLista() {
 		let url = "https://assets.breatheco.de/apis/fake/todos/user/rngustavo";
 		let resp = await fetch(url, {
