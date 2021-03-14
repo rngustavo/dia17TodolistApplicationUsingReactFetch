@@ -3,11 +3,6 @@ import Todo from "./Todo";
 
 const Form = () => {
 	const [todo, setTodo] = useState({});
-	/* const [todos, setTodos] = useState([
-        { label: "Make the bed", done: false },
-        { label: "Walk the dog", done: false },
-        { label: "Do the replits", done: false }
-    ]); */
 	const [todos, setTodos] = useState([]);
 	/*
 	let lista = TraerLista();
@@ -22,11 +17,9 @@ const Form = () => {
 		let res = fetch(url)
 			.then(res => res.json())
 			.then(data => setTodos(data));
-		//.then(data => console.log("mi data", data));
 	}
 
 	const handleChange = e => setTodo({ label: e.target.value, done: false });
-	//console.log(todo);
 	const handleClick = e => {
 		if (Object.keys(todo).length === 0 || todo.label.trim() === "") {
 			alert("el campo no puede estar vacio");
@@ -36,7 +29,6 @@ const Form = () => {
 		let lista = todos.slice(); //hago una copia del array
 		lista.push(todo);
 		setTodos([...todos, todo]);
-		//console.log("lista copia", lista);
 		SubirLista(lista);
 	};
 
@@ -65,11 +57,9 @@ const Form = () => {
 				return resp.json(); // (returns promise) will try to parse the result as json as return a promise that you can .then for results
 			})
 			.then(data => {
-				//console.log("data", data); //this will print on the console the exact object received from the server
 				return data;
 			})
 			.catch(error => {
-				//error handling
 				console.log("error SubirLista", error);
 			});
 	}
@@ -84,6 +74,7 @@ const Form = () => {
 		});
 		let data = await resp.json();
 		return data;
+		//con el codigo siguiente  no hace el await que busco
 		/* .then(resp => resp.json())
 
 			.then(data => {
